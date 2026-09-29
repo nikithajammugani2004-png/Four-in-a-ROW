@@ -1,0 +1,76 @@
+@keyframes dropFall {
+  0% {
+    transform: translateY(calc(-100% * var(--drop-distance, 5))) scaleY(1.15);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(0%) scaleY(0.92);
+  }
+  90% {
+    transform: translateY(-8%) scaleY(1.04);
+  }
+  100% {
+    transform: translateY(0%) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes winPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px 4px var(--win-glow, rgba(255, 255, 255, 0.8));
+    filter: brightness(1.15);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 28px 8px var(--win-glow, rgba(255, 255, 255, 0.95));
+    filter: brightness(1.35);
+  }
+}
+
+@keyframes ghostFloat {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes thinkingShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+[data-reduced-motion="on"] *,
+[data-reduced-motion="on"] *::before,
+[data-reduced-motion="on"] *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001s !important;
+}
